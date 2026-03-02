@@ -125,7 +125,7 @@ export default function TeamPage() {
                     {/* Faculty Section - Flip Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-10 border-b border-gray-200 pb-16">
                         {/* Prof. Tejal Patil */}
-                        <div className="group h-[300px] [perspective:1000px]">
+                        <div className="order-2 md:order-1 group h-[300px] [perspective:1000px]">
                             <div className="relative h-full w-full rounded-3xl shadow-sm border border-gray-100 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                                 <div className="absolute inset-0 bg-white p-6 rounded-3xl [backface-visibility:hidden] flex flex-col items-center justify-center text-center">
                                     <div className="w-28 h-28 bg-gray-100 rounded-full mb-4 overflow-hidden relative shadow-inner ring-4 ring-emerald-50">
@@ -147,7 +147,7 @@ export default function TeamPage() {
                         </div>
 
                         {/* Dr. U. C. Patkar */}
-                        <div className="group h-[300px] [perspective:1000px] relative lg:-top-6 z-10">
+                        <div className="order-1 md:order-2 group h-[300px] [perspective:1000px] relative lg:-top-6 z-10">
                             <div className="relative h-full w-full rounded-3xl shadow-md border border-gray-100 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                                 <div className="absolute inset-0 bg-white p-6 rounded-3xl [backface-visibility:hidden] flex flex-col items-center justify-center text-center">
                                     <div className="w-32 h-32 bg-gray-100 rounded-full mb-4 overflow-hidden relative shadow-inner ring-4 ring-emerald-100 shadow-emerald-100/50">
@@ -169,7 +169,7 @@ export default function TeamPage() {
                         </div>
 
                         {/* Prof. Kumkum Bala */}
-                        <div className="group h-[300px] [perspective:1000px]">
+                        <div className="order-3 md:order-3 group h-[300px] [perspective:1000px]">
                             <div className="relative h-full w-full rounded-3xl shadow-sm border border-gray-100 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                                 <div className="absolute inset-0 bg-white p-6 rounded-3xl [backface-visibility:hidden] flex flex-col items-center justify-center text-center">
                                     <div className="w-28 h-28 bg-gray-100 rounded-full mb-4 overflow-hidden relative shadow-inner ring-4 ring-emerald-50">
@@ -251,18 +251,18 @@ export default function TeamPage() {
                                 className={`transition-all duration-300 ease-in-out overflow-hidden ${openSection === dept.id ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}
                             >
                                 <div className="px-6 pb-6 pt-2 border-t border-gray-100">
-                                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-2">
+                                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-2">
                                         {dept.members.map((member, idx) => (
                                             <div
                                                 key={idx}
-                                                className="flex flex-col items-center text-center bg-gray-50 rounded-2xl p-4 border border-gray-100 hover:border-emerald-200 hover:shadow-md transition-all"
+                                                className="flex flex-col items-center text-center bg-gray-50 rounded-2xl p-3 sm:p-4 border border-gray-100 hover:border-emerald-200 hover:shadow-md transition-all"
                                             >
                                                 {/* Photo Placeholder */}
-                                                <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-lg mb-3 shrink-0 ring-2 ring-emerald-200">
+                                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-sm mb-2 sm:mb-3 shrink-0 ring-2 ring-emerald-200">
                                                     {member.name.split(' ').filter(w => !['Mr.', 'Ms.', 'Dr.'].includes(w)).slice(0, 2).map(w => w[0]).join('')}
                                                 </div>
-                                                <p className="text-sm font-semibold text-gray-900 leading-tight mb-0.5">{member.name}</p>
-                                                <p className="text-xs text-emerald-600 font-medium mb-3">{member.role}</p>
+                                                <p className="text-xs font-semibold text-gray-900 leading-tight mb-0.5">{member.name}</p>
+                                                <p className="text-xs text-emerald-600 font-medium mb-2">{member.role}</p>
                                                 <Link
                                                     href="#"
                                                     className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-gray-400 hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] transition-colors"

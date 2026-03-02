@@ -5,7 +5,7 @@ import { Mail, MapPin, Phone, Instagram, Linkedin, Facebook } from 'lucide-react
 export default function ContactPage() {
     return (
         <>
-            <div className="bg-gray-50 pt-32 pb-16 sm:pt-40 sm:pb-24">
+            <div className="bg-gray-50 pt-28 pb-12 sm:pt-40 sm:pb-24">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-white shadow-xl rounded-2xl p-8 sm:p-12 relative overflow-hidden">
                     <div className="absolute -top-24 -right-24 w-64 h-64 bg-emerald-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
                     <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-emerald-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
@@ -96,7 +96,7 @@ export default function ContactPage() {
                                 <input
                                     type="text"
                                     id="name"
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                                    className="w-full px-4 py-3 text-base rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
                                     placeholder="Your full name"
                                 />
                             </div>
@@ -106,7 +106,7 @@ export default function ContactPage() {
                                 <input
                                     type="email"
                                     id="email"
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                                    className="w-full px-4 py-3 text-base rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
                                     placeholder="your@email.com"
                                 />
                             </div>
@@ -116,7 +116,7 @@ export default function ContactPage() {
                                 <input
                                     type="text"
                                     id="subject"
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                                    className="w-full px-4 py-3 text-base rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
                                     placeholder="How can we help you?"
                                 />
                             </div>
@@ -126,7 +126,7 @@ export default function ContactPage() {
                                 <textarea
                                     id="message"
                                     rows={5}
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all resize-none"
+                                    className="w-full px-4 py-3 text-base rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all resize-none"
                                     placeholder="Type your message here..."
                                 ></textarea>
                             </div>
@@ -143,7 +143,7 @@ export default function ContactPage() {
             </SectionWrapper>
 
             {/* Google Map Embed */}
-            <div className="w-full h-80">
+            <div className="w-full h-56 sm:h-80">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.265588856342!2d73.76455731533505!3d18.563074287381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bbcf9e3b6f4d%3A0x9945d57c4b3b09a0!2sBharati%20Vidyapeeth%20College%20of%20Engineering%2C%20Lavale%2C%20Pune!5e0!3m2!1sen!2sin!4v1623000000000!5m2!1sen!2sin"
                     width="100%"

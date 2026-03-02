@@ -30,8 +30,8 @@ export default function Home() {
           <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-4 py-1.5 text-xs sm:text-sm font-semibold text-gray-300 mb-8 tracking-normal shadow-lg uppercase text-center max-w-full">
             Bharati Vidyapeeth College Of Engineering Lavale Pune
           </div>
-          <h1 className="font-montserrat text-5xl sm:text-7xl md:text-[5.5rem] font-extrabold tracking-tight leading-none drop-shadow-2xl">
-            <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-gray-400 mb-4 tracking-widest uppercase font-sans">
+          <h1 className="font-montserrat text-4xl sm:text-6xl md:text-[5.5rem] font-extrabold tracking-tight leading-tight drop-shadow-2xl px-2">
+            <span className="block text-lg sm:text-3xl md:text-4xl font-bold text-gray-400 mb-3 tracking-widest uppercase font-sans">
               Association of
             </span>
             <TypingEffect
@@ -102,27 +102,27 @@ export default function Home() {
       {/* Statistics Section */}
       <SectionWrapper pattern>
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 md:grid-cols-3 gap-4 sm:gap-8">
             {[
               { icon: Calendar, count: '50+', label: 'Events Organized', color: 'from-teal-500 to-emerald-500', bg: 'bg-teal-50', text: 'text-teal-600' },
               { icon: Users, count: '300+', label: 'Active Members', color: 'from-emerald-500 to-green-500', bg: 'bg-emerald-50', text: 'text-emerald-600' },
               { icon: Award, count: '20+', label: 'Workshops & Seminars', color: 'from-purple-500 to-pink-500', bg: 'bg-purple-50', text: 'text-purple-600' },
             ].map((stat, i) => (
-              <Card key={i} className="group relative overflow-hidden p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <Card key={i} className="group relative overflow-hidden p-5 sm:p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 {/* Subtle bg tint on hover */}
                 <div className={`absolute inset-0 ${stat.bg} opacity-0 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none rounded-2xl`} />
                 {/* Icon */}
-                <div className="flex justify-center mb-5">
-                  <div className={`p-4 rounded-2xl ${stat.bg} group-hover:scale-110 transition-transform duration-300`}>
-                    <stat.icon className={`w-7 h-7 ${stat.text}`} />
+                <div className="flex justify-center mb-3 sm:mb-5">
+                  <div className={`p-3 sm:p-4 rounded-2xl ${stat.bg} group-hover:scale-110 transition-transform duration-300`}>
+                    <stat.icon className={`w-5 h-5 sm:w-7 sm:h-7 ${stat.text}`} />
                   </div>
                 </div>
                 {/* Number */}
-                <div className={`text-5xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2 tracking-tight`}>
+                <div className={`text-3xl sm:text-5xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-1 sm:mb-2 tracking-tight`}>
                   {stat.count}
                 </div>
                 {/* Label */}
-                <div className="text-gray-500 font-medium text-base">{stat.label}</div>
+                <div className="text-gray-500 font-medium text-xs sm:text-base">{stat.label}</div>
                 {/* Bottom accent line */}
                 <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-0 group-hover:w-2/3 bg-gradient-to-r ${stat.color} transition-all duration-500 rounded-full`} />
               </Card>
@@ -179,11 +179,11 @@ export default function Home() {
               <Image
                 src="/aceslogo.png"
                 alt="ACES Logo"
-                width={350}
-                height={350}
-                className="object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                width={280}
+                height={280}
+                className="object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500 w-48 sm:w-64 md:w-72 lg:w-[280px] h-auto"
               />
-              <h3 className="text-5xl font-extrabold text-[#e63946] tracking-widest uppercase font-montserrat drop-shadow-sm -mt-8 relative z-10">ACES</h3>
+              <h3 className="text-3xl sm:text-5xl font-extrabold text-[#e63946] tracking-widest uppercase font-montserrat drop-shadow-sm -mt-6 sm:-mt-8 relative z-10">ACES</h3>
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-10 w-full justify-center lg:justify-start px-4 sm:px-0 relative z-20">
@@ -203,7 +203,7 @@ export default function Home() {
       {/* Upcoming Event Highlight */}
       <SectionWrapper alternate>
         <div className="max-w-5xl mx-auto">
-          <div className="flex justify-between items-end mb-10">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-2">
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Featured Event</h2>
               <p className="text-gray-500">Don't miss out on what's happening next.</p>
