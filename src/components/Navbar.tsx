@@ -12,9 +12,9 @@ export default function Navbar() {
                         alt="ACES Logo"
                         width={48}
                         height={48}
-                        className="w-12 h-12 object-contain drop-shadow-sm -my-1"
+                        className="w-12 h-12 object-contain drop-shadow-sm"
                     />
-                    <span className="text-2xl font-black text-red-600 tracking-tight hidden sm:block">
+                    <span className="text-2xl font-black text-red-600 tracking-tight hidden sm:block mb-1">
                         ACES
                     </span>
                 </Link>
