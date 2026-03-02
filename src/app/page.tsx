@@ -3,6 +3,7 @@ import Image from 'next/image';
 import SectionWrapper from '@/components/SectionWrapper';
 import Card from '@/components/Card';
 import AnimatedTitle from '@/components/AnimatedTitle';
+import TypingEffect from '@/components/TypingEffect';
 import { Users, Calendar, Award, ArrowRight, Linkedin, Instagram, Facebook, Github, CheckCircle, ExternalLink } from 'lucide-react';
 
 export default function Home() {
@@ -33,13 +34,9 @@ export default function Home() {
             <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-gray-400 mb-4 tracking-widest uppercase font-sans">
               Association of
             </span>
-            <AnimatedTitle
-              text="Computer Engineering"
+            <TypingEffect
+              words={['Computer Engineering Students', 'Innovators & Creators', 'Future Engineers', 'Tech Leaders']}
               className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-white to-emerald-500 bg-[length:200%_auto] animate-gradient pb-2 drop-shadow-sm"
-            />
-            <AnimatedTitle
-              text="Students"
-              className="text-white mt-2"
             />
           </h1>
           <p className="mt-8 max-w-2xl mx-auto text-lg sm:text-xl text-gray-300 leading-relaxed font-light drop-shadow-md">
@@ -64,8 +61,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Blurred Fade Transition */}
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-gray-50/50 to-transparent backdrop-blur-[2px] z-20 pointer-events-none"></div>
       </section>
 
       {/* About Preview */}
@@ -106,22 +101,33 @@ export default function Home() {
 
       {/* Statistics Section */}
       <SectionWrapper pattern>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto">
-          {[
-            { icon: Calendar, color: "text-teal-500", bg: "bg-teal-100", count: "50+", label: "Events Organized" },
-            { icon: Users, color: "text-emerald-500", bg: "bg-emerald-100", count: "300+", label: "Active Members" },
-            { icon: Award, color: "text-purple-500", bg: "bg-purple-100", count: "20+", label: "Workshops & Seminars" }
-          ].map((stat, i) => (
-            <Card key={i} className="p-8 group">
-              <div className="flex justify-center mb-6">
-                <div className={`p-4 rounded-2xl ${stat.bg} group-hover:scale-110 transition-transform duration-300`}>
-                  <stat.icon className={`w-8 h-8 ${stat.color}`} />
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { icon: Calendar, count: '50+', label: 'Events Organized', color: 'from-teal-500 to-emerald-500', bg: 'bg-teal-50', text: 'text-teal-600' },
+              { icon: Users, count: '300+', label: 'Active Members', color: 'from-emerald-500 to-green-500', bg: 'bg-emerald-50', text: 'text-emerald-600' },
+              { icon: Award, count: '20+', label: 'Workshops & Seminars', color: 'from-purple-500 to-pink-500', bg: 'bg-purple-50', text: 'text-purple-600' },
+            ].map((stat, i) => (
+              <Card key={i} className="group relative overflow-hidden p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                {/* Subtle bg tint on hover */}
+                <div className={`absolute inset-0 ${stat.bg} opacity-0 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none rounded-2xl`} />
+                {/* Icon */}
+                <div className="flex justify-center mb-5">
+                  <div className={`p-4 rounded-2xl ${stat.bg} group-hover:scale-110 transition-transform duration-300`}>
+                    <stat.icon className={`w-7 h-7 ${stat.text}`} />
+                  </div>
                 </div>
-              </div>
-              <div className="text-4xl font-extrabold text-gray-900 mb-2">{stat.count}</div>
-              <div className="text-gray-500 font-medium">{stat.label}</div>
-            </Card>
-          ))}
+                {/* Number */}
+                <div className={`text-5xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2 tracking-tight`}>
+                  {stat.count}
+                </div>
+                {/* Label */}
+                <div className="text-gray-500 font-medium text-base">{stat.label}</div>
+                {/* Bottom accent line */}
+                <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-0 group-hover:w-2/3 bg-gradient-to-r ${stat.color} transition-all duration-500 rounded-full`} />
+              </Card>
+            ))}
+          </div>
         </div>
       </SectionWrapper>
 

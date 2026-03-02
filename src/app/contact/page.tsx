@@ -1,6 +1,6 @@
 import SectionWrapper from '@/components/SectionWrapper';
 import Card from '@/components/Card';
-import { Mail, MapPin, Phone, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Phone, Instagram, Linkedin, Facebook } from 'lucide-react';
 
 export default function ContactPage() {
     return (
@@ -11,7 +11,7 @@ export default function ContactPage() {
                     <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-emerald-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
                     <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl relative z-10">Contact Us</h1>
                     <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto relative z-10">
-                        Have questions or want to collaborate? Reach out to us. We'd love to hear from you!
+                        Have questions or want to collaborate? Reach out to us — we&apos;d love to hear from you!
                     </p>
                 </div>
             </div>
@@ -20,63 +20,68 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
                     {/* Contact Information */}
                     <div className="space-y-8">
-                        <h2 className="text-3xl font-bold text-gray-900">Get in Touch</h2>
-                        <p className="text-lg text-gray-600">
-                            Whether you are a student looking for guidance, an alumni wanting to reconnect, or a company interested in collaboration, we are here for you.
-                        </p>
+                        <div>
+                            <h2 className="text-3xl font-bold text-gray-900">Get in Touch</h2>
+                            <p className="text-lg text-gray-600 mt-3">
+                                Whether you are a student looking for guidance, an alumnus wanting to reconnect, or a company interested in collaboration — we are here for you.
+                            </p>
+                        </div>
 
-                        <div className="space-y-6 mt-8">
+                        <div className="space-y-4">
+                            {/* Location */}
                             <Card className="flex items-start p-6">
-                                <div className="bg-emerald-50 p-3 rounded-xl mr-4">
+                                <div className="bg-emerald-50 p-3 rounded-xl mr-4 shrink-0">
                                     <MapPin className="w-6 h-6 text-primary" />
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-bold text-gray-900 mb-1">Our Location</h3>
-                                    <p className="text-gray-600">
+                                    <p className="text-gray-600 leading-relaxed">
                                         Department of Computer Engineering<br />
-                                        College Campus Building, Floor 2<br />
-                                        City, State 12345
+                                        Bharati Vidyapeeth College of Engineering<br />
+                                        Pune Lavale, Maharashtra
                                     </p>
                                 </div>
                             </Card>
 
+                            {/* Phone */}
                             <Card className="flex items-start p-6">
-                                <div className="bg-emerald-50 p-3 rounded-xl mr-4">
-                                    <Mail className="w-6 h-6 text-primary" />
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-bold text-gray-900 mb-1">Email Us</h3>
-                                    <p className="text-gray-600">
-                                        General Inquiries: contact@aces.edu<br />
-                                        Events: events@aces.edu
-                                    </p>
-                                </div>
-                            </Card>
-
-                            <Card className="flex items-start p-6">
-                                <div className="bg-emerald-50 p-3 rounded-xl mr-4">
+                                <div className="bg-emerald-50 p-3 rounded-xl mr-4 shrink-0">
                                     <Phone className="w-6 h-6 text-primary" />
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-bold text-gray-900 mb-1">Call Us</h3>
                                     <p className="text-gray-600">
-                                        +1 234 567 8900 (Mon-Fri, 9am-5pm)
+                                        <a href="tel:+919404137110" className="hover:text-primary transition-colors">+91-9404137110</a>
+                                    </p>
+                                </div>
+                            </Card>
+
+                            {/* Email */}
+                            <Card className="flex items-start p-6">
+                                <div className="bg-emerald-50 p-3 rounded-xl mr-4 shrink-0">
+                                    <Mail className="w-6 h-6 text-primary" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-1">Email Us</h3>
+                                    <p className="text-gray-600">
+                                        <a href="mailto:contact@aces.edu" className="hover:text-primary transition-colors">contact@aces.edu</a>
                                     </p>
                                 </div>
                             </Card>
                         </div>
 
-                        <div className="pt-8">
+                        {/* Social Media */}
+                        <div className="pt-2">
                             <h3 className="text-lg font-bold text-gray-900 mb-4">Connect on Social Media</h3>
                             <div className="flex gap-4">
-                                <a href="#" className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors duration-300">
+                                <a href="#" aria-label="Instagram" className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-emerald-500 hover:text-white transition-colors duration-300">
+                                    <Instagram className="w-5 h-5" />
+                                </a>
+                                <a href="#" aria-label="LinkedIn" className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#0A66C2] hover:text-white transition-colors duration-300">
                                     <Linkedin className="w-5 h-5" />
                                 </a>
-                                <a href="#" className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors duration-300">
-                                    <Twitter className="w-5 h-5" />
-                                </a>
-                                <a href="#" className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors duration-300">
-                                    <Github className="w-5 h-5" />
+                                <a href="#" aria-label="Facebook" className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#1877F2] hover:text-white transition-colors duration-300">
+                                    <Facebook className="w-5 h-5" />
                                 </a>
                             </div>
                         </div>
@@ -85,14 +90,14 @@ export default function ContactPage() {
                     {/* Contact Form */}
                     <Card className="p-8 lg:p-10">
                         <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
-                        <form className="space-y-6">
+                        <form className="space-y-5">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
                                 <input
                                     type="text"
                                     id="name"
                                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
-                                    placeholder="John Doe"
+                                    placeholder="Your full name"
                                 />
                             </div>
 
@@ -102,7 +107,7 @@ export default function ContactPage() {
                                     type="email"
                                     id="email"
                                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
-                                    placeholder="john@example.com"
+                                    placeholder="your@email.com"
                                 />
                             </div>
 
@@ -128,7 +133,7 @@ export default function ContactPage() {
 
                             <button
                                 type="button"
-                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all"
+                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white bg-primary hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all"
                             >
                                 Send Message
                             </button>
@@ -136,6 +141,20 @@ export default function ContactPage() {
                     </Card>
                 </div>
             </SectionWrapper>
+
+            {/* Google Map Embed */}
+            <div className="w-full h-80">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.265588856342!2d73.76455731533505!3d18.563074287381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bbcf9e3b6f4d%3A0x9945d57c4b3b09a0!2sBharati%20Vidyapeeth%20College%20of%20Engineering%2C%20Lavale%2C%20Pune!5e0!3m2!1sen!2sin!4v1623000000000!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="BVCOE Pune Lavale Location"
+                ></iframe>
+            </div>
         </>
     );
 }
