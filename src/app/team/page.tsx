@@ -171,7 +171,7 @@ const DEPARTMENT_TEAMS = [
         members: [
             { name: 'Mr. Jayesh Mahajan', role: 'Head (SE A)', photo: '/team/Jayesh Mahajan.jpg' },
             { name: 'Mr. Sugat Sanjay Athawale', role: 'Co-Head (SE B)', photo: '/team/Sugat Sanjay Athawale.jpg' },
-            { name: 'Mr. Swayam Kailas Polakhare', role: 'Co-Head (SE B)', photo: '/team/Swayam Polakhare.jpg', birthday: true },
+            { name: 'Mr. Swayam Kailas Polakhare', role: 'Co-Head (SE B)', photo: '/team/Swayam Polakhare.png', birthday: true },
             { name: 'Mr. Hari Dattatray Gurav', role: 'Co-Head (SE A)', photo: '/team/Hari Dattatray Gurav.JPG' },
             { name: 'Ms. Kajal Mahadev Vyawahare', role: 'Startup Head (SE B)', photo: '/team/Kajal Vyawahare_.jpg' },
         ],
