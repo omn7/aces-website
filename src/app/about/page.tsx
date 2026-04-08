@@ -1,6 +1,32 @@
+import type { Metadata } from 'next';
 import SectionWrapper from '@/components/SectionWrapper';
 import Card from '@/components/Card';
 import { Target, Users, BookOpen, GraduationCap, Building, Activity, Globe, Cpu } from 'lucide-react';
+
+export const metadata: Metadata = {
+    title: 'About ACES \u2014 Our History, Mission & Activities',
+    description:
+        'Learn about ACES (Association of Computer Engineering Students) at Bharati Vidyapeeth College of Engineering, Pune Lavale. Founded on Engineers Day 2014, ACES runs workshops, hackathons, CSI & IEEE chapters, and student leadership programs.',
+    keywords: [
+        'About ACES BVCOE',
+        'ACES history',
+        'ACES mission',
+        'computer engineering student association Pune',
+        'CSI BVCOE chapter',
+        'IEEE BVCOE',
+        'Bharati Vidyapeeth student association',
+        'ACES activities',
+        'Dr. U. C. Patkar BVCOE',
+    ],
+    alternates: { canonical: 'https://aces-bvcoe.vercel.app/about' },
+    openGraph: {
+        title: 'About ACES \u2014 Association of Computer Engineering Students | BVCOE Pune',
+        description:
+            'ACES was founded on Engineers Day 2014 at Bharati Vidyapeeth College of Engineering, Lavale. Discover our mission, leadership, CSI & IEEE memberships, and activities.',
+        url: 'https://aces-bvcoe.vercel.app/about',
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'About ACES BVCOE' }],
+    },
+};
 
 export default function AboutPage() {
     return (

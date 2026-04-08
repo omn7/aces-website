@@ -1,6 +1,29 @@
+import type { Metadata } from 'next';
 import SectionWrapper from '@/components/SectionWrapper';
 import Card from '@/components/Card';
 import { Mail, MapPin, Phone, Instagram, Linkedin, Facebook } from 'lucide-react';
+
+export const metadata: Metadata = {
+    title: 'Contact ACES BVCOE \u2014 Get in Touch',
+    description:
+        'Contact ACES (Association of Computer Engineering Students) at Bharati Vidyapeeth College of Engineering, Pune Lavale. Reach us for collaborations, event queries, or student support. Phone: +91-9404137110.',
+    keywords: [
+        'Contact ACES BVCOE',
+        'ACES contact Pune',
+        'Bharati Vidyapeeth computer engineering contact',
+        'BVCOE student association contact',
+        'ACES email',
+        'ACES phone number',
+    ],
+    alternates: { canonical: 'https://aces-bvcoe.vercel.app/contact' },
+    openGraph: {
+        title: 'Contact ACES BVCOE \u2014 Association of Computer Engineering Students',
+        description:
+            'Have questions or want to collaborate with ACES? Reach out to us at Bharati Vidyapeeth College of Engineering, Pune Lavale.',
+        url: 'https://aces-bvcoe.vercel.app/contact',
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Contact ACES BVCOE' }],
+    },
+};
 
 export default function ContactPage() {
     return (
