@@ -28,7 +28,7 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
           <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-4 py-1.5 text-xs sm:text-sm font-semibold text-gray-300 mb-8 tracking-normal shadow-lg uppercase text-center max-w-full">
-            Bharati Vidyapeeth College Of Engineering Lavale Pune
+            Bharati Vidyapeeth's College Of Engineering Lavale Pune
           </div>
           <h1 className="font-montserrat text-4xl sm:text-6xl md:text-[5.5rem] font-extrabold tracking-tight leading-tight drop-shadow-2xl px-2">
             <span className="block text-lg sm:text-3xl md:text-4xl font-bold text-gray-400 mb-3 tracking-widest uppercase font-sans">

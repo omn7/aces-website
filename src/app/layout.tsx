@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "ACES BVCOE",
     "Association of Computer Engineering Students",
     "BVCOE",
-    "Bharati Vidyapeeth College of Engineering",
+    "Bharati Vidyapeeth's College of Engineering",
     "Bharati Vidyapeeth Pune",
     "BVCOEL",
     "Computer Engineering Pune",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ACES BVCOE — Association of Computer Engineering Students",
     description:
-      "ACES at Bharati Vidyapeeth College of Engineering, Pune Lavale — organizing hackathons, workshops, seminars, and cultural events for 300+ computer engineering students since 2014.",
+      "ACES at Bharati Vidyapeeth's College of Engineering, Pune Lavale — organizing hackathons, workshops, seminars, and cultural events for 300+ computer engineering students since 2014.",
     url: "https://acesbvcoel.com",
     siteName: "ACES BVCOE",
     images: [
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "ACES — Association of Computer Engineering Students, Bharati Vidyapeeth College of Engineering Pune",
+        alt: "ACES — Association of Computer Engineering Students, Bharati Vidyapeeth's College of Engineering Pune",
         type: "image/png",
       },
     ],
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ACES BVCOE — Association of Computer Engineering Students",
     description:
-      "ACES at Bharati Vidyapeeth College of Engineering, Pune — organizing hackathons, workshops & events for 300+ computer engineering students since 2014.",
+      "ACES at Bharati Vidyapeeth's College of Engineering, Pune — organizing hackathons, workshops & events for 300+ computer engineering students since 2014.",
     images: ["/og-image.png"],
     creator: "@acesbvcoe",
     site: "@acesbvcoe",
@@ -144,7 +144,7 @@ const websiteSchema = {
   "@type": "WebSite",
   name: "ACES BVCOE",
   url: "https://acesbvcoel.com",
-  description: "Official website of the Association of Computer Engineering Students at Bharati Vidyapeeth College of Engineering, Pune.",
+  description: "Official website of the Association of Computer Engineering Students at Bharati Vidyapeeth's College of Engineering, Pune.",
   potentialAction: {
     "@type": "SearchAction",
     target: {

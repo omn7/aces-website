@@ -6,7 +6,7 @@ import { Target, Users, BookOpen, GraduationCap, Building, Activity, Globe, Cpu 
 export const metadata: Metadata = {
     title: 'About ACES \u2014 Our History, Mission & Activities',
     description:
-        'Learn about ACES (Association of Computer Engineering Students) at Bharati Vidyapeeth College of Engineering, Pune Lavale. Founded on Engineers Day 2014, ACES runs workshops, hackathons, CSI & IEEE chapters, and student leadership programs.',
+        'Learn about ACES (Association of Computer Engineering Students) at Bharati Vidyapeeth\'s College of Engineering, Pune Lavale. Founded on Engineers Day 2014, ACES runs workshops, hackathons, CSI & IEEE chapters, and student leadership programs.',
     keywords: [
         'About ACES BVCOE',
         'ACES history',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'About ACES \u2014 Association of Computer Engineering Students | BVCOE Pune',
         description:
-            'ACES was founded on Engineers Day 2014 at Bharati Vidyapeeth College of Engineering, Lavale. Discover our mission, leadership, CSI & IEEE memberships, and activities.',
+            'ACES was founded on Engineers Day 2014 at Bharati Vidyapeeth\'s College of Engineering, Lavale. Discover our mission, leadership, CSI & IEEE memberships, and activities.',
         url: 'https://acesbvcoel.com/about',
         images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'About ACES BVCOE' }],
     },

@@ -105,9 +105,8 @@ function BirthdayMemberCard({ member, idx }: {
         <div
             key={idx}
             onClick={member.birthday ? trigger : undefined}
-            className={`relative flex flex-col items-center text-center bg-gray-50 rounded-2xl p-3 sm:p-4 border border-gray-100 hover:border-emerald-200 hover:shadow-md transition-all ${
-                member.birthday ? 'cursor-pointer select-none' : ''
-            }`}
+            className={`relative flex flex-col items-center text-center bg-gray-50 rounded-2xl p-3 sm:p-4 border border-gray-100 hover:border-emerald-200 hover:shadow-md transition-all ${member.birthday ? 'cursor-pointer select-none' : ''
+                }`}
         >
             <RibbonOverlay ribbons={ribbons} />
 
@@ -150,7 +149,7 @@ function CoreMemberCard({ member }: {
             className="text-center group w-full sm:w-[calc(50%-2rem)] lg:w-[calc(25%-2rem)] min-w-[250px] max-w-[300px]"
         >
             <div
-                className={`relative p-6 ${ member.birthday ? 'cursor-pointer select-none' : '' }`}
+                className={`relative p-6 ${member.birthday ? 'cursor-pointer select-none' : ''}`}
                 onClick={member.birthday ? trigger : undefined}
             >
                 <RibbonOverlay ribbons={ribbons} />
@@ -263,7 +262,7 @@ const DEPARTMENT_TEAMS = [
             { name: 'Mr. Aditya Sharad Pawar', role: 'Co-Head', photo: '/team/Aditya Pawar.jpg' },
             { name: 'Mr. Sanskar Sunil Ghule', role: 'Co-Head', photo: '/team/Sanskar ghule_.jpg' },
             { name: 'Ms. Anjali Sudhir Kalyani', role: 'Anchoring Head Girls', photo: '/team/Anjali Kalyani.jpg' },
-            { name: 'Mr. Atharva Pramod Raut', role: 'Anchoring Head Boys', photo: null },
+
             { name: 'Ms. Piyusha Sunil Vavhal', role: 'Documentation Head', photo: '/team/Piyusha Vavhal.jpeg' },
         ],
     },
