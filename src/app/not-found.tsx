@@ -48,7 +48,7 @@ export default function NotFound() {
 
             {/* Footer credit */}
             <p className="mt-16 text-sm text-gray-400">
-                &copy; {new Date().getFullYear()} ACES — Bharati Vidyapeeth College of Engineering, Pune
+                &copy; {new Date().getFullYear()} ACES — Bharati Vidyapeeth's College of Engineering, Pune
             </p>
         </div>
     );

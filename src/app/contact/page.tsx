@@ -1,31 +1,34 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import SectionWrapper from '@/components/SectionWrapper';
 import Card from '@/components/Card';
-import { Mail, MapPin, Phone, Instagram, Linkedin, Facebook } from 'lucide-react';
-
-export const metadata: Metadata = {
-    title: 'Contact ACES BVCOE \u2014 Get in Touch',
-    description:
-        'Contact ACES (Association of Computer Engineering Students) at Bharati Vidyapeeth College of Engineering, Pune Lavale. Reach us for collaborations, event queries, or student support. Phone: +91-9146573033.',
-    keywords: [
-        'Contact ACES BVCOE',
-        'ACES contact Pune',
-        'Bharati Vidyapeeth computer engineering contact',
-        'BVCOE student association contact',
-        'ACES email',
-        'ACES phone number',
-    ],
-    alternates: { canonical: 'https://acesbvcoel.com/contact' },
-    openGraph: {
-        title: 'Contact ACES BVCOE \u2014 Association of Computer Engineering Students',
-        description:
-            'Have questions or want to collaborate with ACES? Reach out to us at Bharati Vidyapeeth College of Engineering, Pune Lavale.',
-        url: 'https://acesbvcoel.com/contact',
-        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Contact ACES BVCOE' }],
-    },
-};
+import { Mail, MapPin, Phone, Instagram, Linkedin, Facebook, CheckCircle, XCircle, Loader2 } from 'lucide-react';
 
 export default function ContactPage() {
+    const formRef = useRef<HTMLFormElement>(null);
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!formRef.current) return;
+
+        setStatus('loading');
+        try {
+            await emailjs.sendForm(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+                formRef.current,
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+            );
+            setStatus('success');
+            formRef.current.reset();
+        } catch {
+            setStatus('error');
+        }
+    };
+
     return (
         <>
             <div className="bg-gray-50 pt-28 pb-12 sm:pt-40 sm:pb-24">
@@ -51,7 +54,6 @@ export default function ContactPage() {
                         </div>
 
                         <div className="space-y-4">
-                            {/* Location */}
                             <Card className="flex items-start p-6">
                                 <div className="bg-emerald-50 p-3 rounded-xl mr-4 shrink-0">
                                     <MapPin className="w-6 h-6 text-primary" />
@@ -60,13 +62,12 @@ export default function ContactPage() {
                                     <h3 className="text-lg font-bold text-gray-900 mb-1">Our Location</h3>
                                     <p className="text-gray-600 leading-relaxed">
                                         Department of Computer Engineering<br />
-                                        Bharati Vidyapeeth College of Engineering<br />
+                                        Bharati Vidyapeeth's College of Engineering<br />
                                         Pune Lavale, Maharashtra
                                     </p>
                                 </div>
                             </Card>
 
-                            {/* Phone */}
                             <Card className="flex items-start p-6">
                                 <div className="bg-emerald-50 p-3 rounded-xl mr-4 shrink-0">
                                     <Phone className="w-6 h-6 text-primary" />
@@ -79,7 +80,6 @@ export default function ContactPage() {
                                 </div>
                             </Card>
 
-                            {/* Email */}
                             <Card className="flex items-start p-6">
                                 <div className="bg-emerald-50 p-3 rounded-xl mr-4 shrink-0">
                                     <Mail className="w-6 h-6 text-primary" />
@@ -113,54 +113,90 @@ export default function ContactPage() {
                     {/* Contact Form */}
                     <Card className="p-8 lg:p-10">
                         <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
-                        <form className="space-y-5">
-                            <div>
-                                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    className="w-full px-4 py-3 text-base rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
-                                    placeholder="Your full name"
-                                />
-                            </div>
 
-                            <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    className="w-full px-4 py-3 text-base rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
-                                    placeholder="your@email.com"
-                                />
+                        {status === 'success' ? (
+                            <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
+                                <CheckCircle className="w-16 h-16 text-emerald-500" />
+                                <h4 className="text-xl font-bold text-gray-900">Message Sent!</h4>
+                                <p className="text-gray-600">Thank you for reaching out. We&apos;ll get back to you as soon as possible.</p>
+                                <button
+                                    onClick={() => setStatus('idle')}
+                                    className="mt-2 px-6 py-2.5 rounded-xl text-sm font-semibold text-white bg-primary hover:bg-emerald-700 transition-all"
+                                >
+                                    Send Another
+                                </button>
                             </div>
+                        ) : (
+                            <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
+                                <div>
+                                    <label htmlFor="from_name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                    <input
+                                        type="text"
+                                        id="from_name"
+                                        name="from_name"
+                                        required
+                                        className="w-full px-4 py-3 text-base rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                                        placeholder="Your full name"
+                                    />
+                                </div>
 
-                            <div>
-                                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                                <input
-                                    type="text"
-                                    id="subject"
-                                    className="w-full px-4 py-3 text-base rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
-                                    placeholder="How can we help you?"
-                                />
-                            </div>
+                                <div>
+                                    <label htmlFor="reply_to" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                    <input
+                                        type="email"
+                                        id="reply_to"
+                                        name="reply_to"
+                                        required
+                                        className="w-full px-4 py-3 text-base rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                                        placeholder="your@email.com"
+                                    />
+                                </div>
 
-                            <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                                <textarea
-                                    id="message"
-                                    rows={5}
-                                    className="w-full px-4 py-3 text-base rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all resize-none"
-                                    placeholder="Type your message here..."
-                                ></textarea>
-                            </div>
+                                <div>
+                                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                                    <input
+                                        type="text"
+                                        id="subject"
+                                        name="subject"
+                                        required
+                                        className="w-full px-4 py-3 text-base rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                                        placeholder="How can we help you?"
+                                    />
+                                </div>
 
-                            <button
-                                type="button"
-                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white bg-primary hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all"
-                            >
-                                Send Message
-                            </button>
-                        </form>
+                                <div>
+                                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows={5}
+                                        required
+                                        className="w-full px-4 py-3 text-base rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all resize-none"
+                                        placeholder="Type your message here..."
+                                    ></textarea>
+                                </div>
+
+                                {status === 'error' && (
+                                    <div className="flex items-center gap-2 text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm">
+                                        <XCircle className="w-4 h-4 shrink-0" />
+                                        Something went wrong. Please try again or email us directly.
+                                    </div>
+                                )}
+
+                                <button
+                                    type="submit"
+                                    disabled={status === 'loading'}
+                                    className="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white bg-primary hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                                >
+                                    {status === 'loading' ? (
+                                        <>
+                                            <Loader2 className="w-4 h-4 animate-spin" />
+                                            Sending…
+                                        </>
+                                    ) : 'Send Message'}
+                                </button>
+                            </form>
+                        )}
                     </Card>
                 </div>
             </SectionWrapper>

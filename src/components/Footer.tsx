@@ -20,7 +20,7 @@ export default function Footer() {
                         <span className="text-2xl font-black text-red-500 tracking-tight">ACES</span>
                     </Link>
                     <p className="text-sm leading-relaxed">
-                        Association of Computer Engineering Students — Empowering innovation, collaboration, and technical excellence at Bharati Vidyapeeth College of Engineering, Pune.
+                        Association of Computer Engineering Students — Empowering innovation, collaboration, and technical excellence at Bharati Vidyapeeth's College of Engineering, Pune.
                     </p>
                     {/* Social Icons */}
                     <div className="flex items-center gap-3 mt-1">
@@ -55,7 +55,7 @@ export default function Footer() {
                     <ul className="space-y-4 text-sm">
                         <li className="flex items-start gap-3">
                             <MapPin className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-                            <span>Bharati Vidyapeeth College of Engineering, Pune Lavale</span>
+                            <span>Bharati Vidyapeeth's College of Engineering, Pune Lavale</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <Phone className="w-5 h-5 text-emerald-400 shrink-0" />
