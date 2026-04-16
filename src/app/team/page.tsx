@@ -96,7 +96,7 @@ function RibbonOverlay({ ribbons }: { ribbons: Ribbon[] }) {
 
 // ─── Member card (birthday ones get ribbon animation on click) ─────────────
 function BirthdayMemberCard({ member, idx }: {
-    member: { name: string; role: string; photo: string | null; birthday?: boolean };
+    member: { name: string; role: string; photo: string | null; linkedin?: string; birthday?: boolean };
     idx: number;
 }) {
     const { ribbons, trigger } = useRibbons();
@@ -126,21 +126,24 @@ function BirthdayMemberCard({ member, idx }: {
             </div>
             <p className="text-xs font-semibold text-gray-900 leading-tight mb-0.5">{member.name}</p>
             <p className="text-xs text-emerald-600 font-medium mb-2">{member.role}</p>
-            <Link
-                href="#"
-                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-gray-400 hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] transition-colors"
-                aria-label={`LinkedIn profile for ${member.name}`}
-                onClick={e => e.stopPropagation()}
-            >
-                <Linkedin className="w-4 h-4" />
-            </Link>
+            {member.linkedin && member.linkedin !== '#' && (
+                <Link
+                    href={member.linkedin}
+                    target="_blank"
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-gray-400 hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] transition-colors"
+                    aria-label={`LinkedIn profile for ${member.name}`}
+                    onClick={e => e.stopPropagation()}
+                >
+                    <Linkedin className="w-4 h-4" />
+                </Link>
+            )}
         </div>
     );
 }
 
 // ─── Core Committee card — birthday ones get confetti on click ──────────────
 function CoreMemberCard({ member }: {
-    member: { id: number; name: string; role: string; photo: string | null; linkedin: string; birthday?: boolean };
+    member: { id: number; name: string; role: string; photo: string | null; linkedin?: string; birthday?: boolean };
 }) {
     const { ribbons, trigger } = useRibbons();
 
@@ -171,15 +174,17 @@ function CoreMemberCard({ member }: {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
                 <p className="text-primary font-medium text-sm mb-4">{member.role}</p>
-                <Link
-                    href={member.linkedin}
-                    target="_blank"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-50 text-gray-400 hover:bg-emerald-50 hover:text-[#0A66C2] transition-colors"
-                    aria-label={`LinkedIn profile for ${member.name}`}
-                    onClick={e => e.stopPropagation()}
-                >
-                    <Linkedin className="w-5 h-5" />
-                </Link>
+                {member.linkedin && member.linkedin !== '#' && (
+                    <Link
+                        href={member.linkedin}
+                        target="_blank"
+                        className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-50 text-gray-400 hover:bg-emerald-50 hover:text-[#0A66C2] transition-colors"
+                        aria-label={`LinkedIn profile for ${member.name}`}
+                        onClick={e => e.stopPropagation()}
+                    >
+                        <Linkedin className="w-5 h-5" />
+                    </Link>
+                )}
             </div>
         </Card>
     );
@@ -209,17 +214,17 @@ const NON_TEACHING_STAFF = [
 ];
 
 const TEAM_MEMBERS = [
-    { id: 1, name: 'Ms. Janki Rajesh Palpattwar', role: 'President', linkedin: '#', photo: '/team/Janki Palpattwar.png' },
-    { id: 2, name: 'Mr. Arya Amit Mokashi', role: 'President', linkedin: '#', photo: '/team/Arya Mokashi.jpg' },
-    { id: 3, name: 'Ms. Mahek Vinod Wadhwani', role: 'Vice President', linkedin: '#', photo: '/team/Mahek Wadhwani.jpg' },
-    { id: 4, name: 'Mr. Arya Haridas Kshirsagar', role: 'Vice President', linkedin: '#', photo: '/team/Arya Kshirsagar.png' },
-    { id: 5, name: 'Ms. Runal Milind Gavade', role: 'General Secretary', linkedin: '#', photo: '/team/runal gavade.png' },
-    { id: 6, name: 'Mr. Yash Haribhau Sahane', role: 'General Secretary', linkedin: '#', photo: '/team/yash sahani.png' },
-    { id: 7, name: 'Mr. Rupesh Balaji Shinde', role: 'Joint Secretary', linkedin: '#', photo: '/team/Rupesh Shinde.jpg' },
-    { id: 8, name: 'Ms. Madhushree Narendra Warke', role: 'Treasurer', linkedin: '#', photo: '/team/Madhushree Warke.jpg' },
-    { id: 9, name: 'Ms. Mansi Babanrao Khawas', role: 'Co-Treasurer', linkedin: '#', photo: '/team/Mansi Khawas.jpg', birthday: true },
-    { id: 10, name: 'Mr. Piyush Yashwant Rayrikar', role: 'Cultural Head', linkedin: '#', photo: '/team/Piyush Yashwant Rayrikar.png' },
-    { id: 11, name: 'Mr. Om Sudhakar Ingole', role: 'Sports Head', linkedin: '#', photo: '/team/Om Ingole.png' },
+    { id: 1, name: 'Ms. Janki Rajesh Palpattwar', role: 'President', linkedin: 'http://linkedin.com/in/janki-palpattuwar-80385b258', photo: '/team/Janki Palpattwar.png' },
+    { id: 2, name: 'Mr. Arya Amit Mokashi', role: 'President', linkedin: 'http://linkedin.com/in/arya-mokashi-032105259', photo: '/team/Arya Mokashi.jpg' },
+    { id: 3, name: 'Ms. Mahek Vinod Wadhwani', role: 'Vice President', photo: '/team/Mahek Wadhwani.jpg' },
+    { id: 4, name: 'Mr. Arya Haridas Kshirsagar', role: 'Vice President', linkedin: 'https://www.linkedin.com/in/arya-kshirsagar-0275aa290', photo: '/team/Arya Kshirsagar.png' },
+    { id: 5, name: 'Ms. Runal Milind Gavade', role: 'General Secretary', linkedin: 'https://www.linkedin.com/in/runal-gavade', photo: '/team/runal gavade.png' },
+    { id: 6, name: 'Mr. Yash Haribhau Sahane', role: 'General Secretary', linkedin: 'https://www.linkedin.com/in/yash-sahane-319217319/', photo: '/team/yash sahani.png' },
+    { id: 7, name: 'Mr. Rupesh Balaji Shinde', role: 'Joint Secretary', photo: '/team/Rupesh Shinde.jpg' },
+    { id: 8, name: 'Ms. Madhushree Narendra Warke', role: 'Treasurer', linkedin: 'https://www.linkedin.com/in/madhushree-warke-922695289', photo: '/team/Madhushree Warke.jpg' },
+    { id: 9, name: 'Ms. Mansi Babanrao Khawas', role: 'Co-Treasurer', linkedin: 'https://www.linkedin.com/in/mansi-khawas-142071298', photo: '/team/Mansi Khawas.jpg', birthday: true },
+    { id: 10, name: 'Mr. Piyush Yashwant Rayrikar', role: 'Cultural Head', photo: '/team/Piyush Yashwant Rayrikar.png' },
+    { id: 11, name: 'Mr. Om Sudhakar Ingole', role: 'Sports Head', photo: '/team/Om Ingole.png' },
 ];
 
 const DEPARTMENT_TEAMS = [
@@ -228,8 +233,8 @@ const DEPARTMENT_TEAMS = [
         title: 'Cultural Secretary',
         members: [
             { name: 'Ms. Meenakshi Mahadev Banasode', role: 'Head Girls', photo: '/team/Meenakshi Banasode.jpg' },
-            { name: 'Mr. Atharva Nemchand Kurkut', role: 'Co-Head Boys', photo: '/team/Atharva Kurkute.png' },
-            { name: 'Ms. Sanskruti Kakade', role: 'Co-Head Girls', photo: '/team/Sanskruti Kakade.png' },
+            { name: 'Mr. Atharva Nemchand Kurkut', role: 'Co-Head Boys', linkedin: 'https://www.linkedin.com/in/atharva-kurkut-768856313', photo: '/team/Atharva Kurkute.png' },
+            { name: 'Ms. Sanskruti Kakade', role: 'Co-Head Girls', linkedin: 'https://www.linkedin.com/in/sanskruti-kakade-4692b9345?utm_source=share_via&utm_content=profile&utm_medium=member_android', photo: '/team/Sanskruti Kakade.png' },
         ],
     },
 
@@ -238,9 +243,9 @@ const DEPARTMENT_TEAMS = [
         title: 'Technical Team',
         members: [
             { name: 'Mr. Jayesh Mahajan', role: 'Head', photo: '/team/Jayesh Mahajan.jpg' },
-            { name: 'Mr. Sugat Sanjay Athawale', role: 'Co-Head', photo: '/team/Sugat Sanjay Athawale.jpg' },
+            { name: 'Mr. Sugat Sanjay Athawale', role: 'Co-Head', linkedin: 'https://www.linkedin.com/in/sugat-athawale?utm_source=share_via&utm_content=profile&utm_medium=member_android', photo: '/team/Sugat Sanjay Athawale.jpg' },
             { name: 'Mr. Swayam Kailas Polakhare', role: 'Co-Head', photo: '/team/Swayam Polakhare.png', birthday: true },
-            { name: 'Mr. Hari Dattatray Gurav', role: 'Co-Head', photo: '/team/Hari Dattatray Gurav.JPG' },
+            { name: 'Mr. Hari Dattatray Gurav', role: 'Co-Head', linkedin: 'https://www.linkedin.com/in/hari-gurav-98501b376?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', photo: '/team/Hari Dattatray Gurav.JPG' },
             { name: 'Ms. Kajal Mahadev Vyawahare', role: 'Startup Head', photo: '/team/Kajal Vyawahare_.jpg' },
         ],
     },
@@ -248,17 +253,17 @@ const DEPARTMENT_TEAMS = [
         id: 'pr',
         title: 'Public Relations Officer',
         members: [
-            { name: 'Mr. Rameshwar Anil Chavan', role: 'Head', photo: '/team/RameshwarChavan.jpg' },
-            { name: 'Mr. Abhijeet Jadhav', role: 'Co-Head', photo: '/team/Abhijeet_Jadhav.png' },
+            { name: 'Mr. Rameshwar Anil Chavan', role: 'Head', linkedin: 'https://www.linkedin.com/in/rameshwar-chavan-9761a329a?utm_source=share_via&utm_content=profile&utm_medium=member_ios', photo: '/team/RameshwarChavan.jpg' },
+            { name: 'Mr. Abhijeet Jadhav', role: 'Co-Head', linkedin: 'https://www.linkedin.com/in/abhijeet-jadhav-450751250?utm_source=share_via&utm_content=profile&utm_medium=member_android', photo: '/team/Abhijeet_Jadhav.png' },
             { name: 'Ms. Pallavi Shrikant Havre', role: 'Internship Head', photo: '/team/Pallavi Havre.jpg' },
-            { name: 'Mr. Neeraj Manoj Shirsat', role: 'E-Cell Head', photo: '/team/Neeraj Shirsat.jpg' },
+            { name: 'Mr. Neeraj Manoj Shirsat', role: 'E-Cell Head', linkedin: 'https://www.linkedin.com/in/neeraj-shirsat-a80b71390?utm_source=share_via&utm_content=profile&utm_medium=member_android', photo: '/team/Neeraj Shirsat.jpg' },
         ],
     },
     {
         id: 'events',
         title: 'Event Coordinators',
         members: [
-            { name: 'Mr. Abhijeet Tanaji Lokhande', role: 'Head', photo: '/team/LOKHANDE ABHIJIT TANAJI.JPG' },
+            { name: 'Mr. Abhijeet Tanaji Lokhande', role: 'Head', linkedin: 'https://www.linkedin.com/public-profile/settings/', photo: '/team/LOKHANDE ABHIJIT TANAJI.JPG' },
             { name: 'Mr. Aditya Sharad Pawar', role: 'Co-Head', photo: '/team/Aditya Pawar.jpg' },
             { name: 'Mr. Sanskar Sunil Ghule', role: 'Co-Head', photo: '/team/Sanskar ghule_.jpg' },
             { name: 'Ms. Anjali Sudhir Kalyani', role: 'Anchoring Head Girls', photo: '/team/Anjali Kalyani.jpg' },
@@ -270,19 +275,19 @@ const DEPARTMENT_TEAMS = [
         id: 'socialmedia',
         title: 'Social Media',
         members: [
-            { name: 'Mr. Shivam Navnath Dhole', role: 'Head Boys', photo: '/team/Shivam Dhole.jpg' },
-            { name: 'Ms. Minakshi Tulshiram Waghmare', role: 'Head Girls', photo: '/team/Minakshi Waghmare.jpg' },
+            { name: 'Mr. Shivam Navnath Dhole', role: 'Head Boys', linkedin: 'https://www.linkedin.com/in/shivam-dhole-45a991375?utm_source=share_via&utm_content=profile&utm_medium=member_android', photo: '/team/Shivam Dhole.jpg' },
+            { name: 'Ms. Minakshi Tulshiram Waghmare', role: 'Head Girls', linkedin: 'https://www.linkedin.com/in/minakshi-waghmare-6b7236331?utm_source=share_via&utm_content=profile&utm_medium=member_android', photo: '/team/Minakshi Waghmare.jpg' },
             { name: 'Ms. Sakshi Santosh Raul', role: 'Head Content Creation', photo: '/team/Sakshi Raul.png' },
             { name: 'Ms. Palak Santosh Karanjawane', role: 'Co-Head Content Creation', photo: '/team/Palak Karanjawane_.jpg' },
-            { name: 'Ms. Tanvi Kolhe', role: 'Creative Head', photo: '/team/Tanvi Kolhe .jpg' },
-            { name: 'Ms. Krupal Bharatsing Girase', role: 'Creative Co-Head', photo: '/team/krupal singh.png' },
+            { name: 'Ms. Tanvi Kolhe', role: 'Creative Head', linkedin: 'https://www.linkedin.com/in/tanvi-kolhe-38945a345?utm_source=share_via&utm_content=profile&utm_medium=member_android', photo: '/team/Tanvi Kolhe .jpg' },
+            { name: 'Ms. Krupal Bharatsing Girase', role: 'Creative Co-Head', linkedin: 'https://www.linkedin.com/in/krupal-girase-048527375?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app', photo: '/team/krupal singh.png' },
         ],
     },
     {
         id: 'rnd',
         title: 'Research & Development',
         members: [
-            { name: 'Mr. Omkar Vijay Chikalge', role: 'Head', photo: '/team/Omkar Chikalge.jpg' },
+            { name: 'Mr. Omkar Vijay Chikalge', role: 'Head', linkedin: 'https://www.linkedin.com/in/omkar-chikalge-a18a55327?utm_source=share_via&utm_content=profile&utm_medium=member_android', photo: '/team/Omkar Chikalge.jpg' },
             { name: 'Mr. Ujwal Virendra Sonawane', role: 'Co-Head', photo: '/team/Ujwal Sonawane.jpg' },
             { name: 'Mr. Piyush Khaladkar', role: 'Co-Head', photo: '/team/PiyushKhaladkar.jpg' },
         ],
@@ -293,9 +298,9 @@ const DEPARTMENT_TEAMS = [
         members: [
             { name: 'Ms. Nidhi Rajesh Sharma', role: 'Head Girls', photo: '/team/Nidhisharma.jpg' },
             { name: 'Mr. Harshal Deepak Patil', role: 'Co-Head Boys', photo: '/team/Harshal Patil.png', birthday: true },
-            { name: 'Ms. Priti Chhagan Bagul', role: 'Co-Head Girls', photo: '/team/Priti Bagul.jpg' },
+            { name: 'Ms. Priti Chhagan Bagul', role: 'Co-Head Girls', linkedin: 'https://www.linkedin.com/in/priti-bagul-36b32832b?utm_source=share_via&utm_content=profile&utm_medium=member_android', photo: '/team/Priti Bagul.jpg' },
             { name: 'Ms. Vaishnavi Narwade', role: 'Basketball Head Member', photo: '/team/Narawade Vaishnavi_.jpg' },
-            { name: 'Ms. Shivani Rajaram Rawool', role: 'Basketball Co-Head Member', photo: '/team/Shivani Rawool.jpg' },
+            { name: 'Ms. Shivani Rajaram Rawool', role: 'Basketball Co-Head Member', linkedin: 'https://www.linkedin.com/in/shivani-rawool-921689335?utm_source=share_via&utm_content=profile&utm_medium=member_android', photo: '/team/Shivani Rawool.jpg' },
             { name: 'Ms. Aditi Jawanjal', role: 'Basketball Co-Head Member', photo: '/team/Aditi Jawanjal.jpg' },
             { name: 'Ms. Aachal Ramesh Tade', role: 'Kho-kho Head Member', photo: '/team/Achal Tade.jpg' },
             { name: 'Mr. Yash Pandurang Yenpure', role: 'Online Games Head Member', photo: '/team/Yash Yenpure.jpg' },
@@ -336,9 +341,7 @@ export default function TeamPage() {
                                     <p className="text-gray-700 italic leading-relaxed text-sm font-medium mb-4">
                                         "Empowering students to achieve their full potential through dedication, discipline, and continuous learning."
                                     </p>
-                                    <Link href="#" className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-sm text-emerald-600 hover:bg-emerald-600 hover:text-white transition-colors" aria-label="LinkedIn Profile">
-                                        <Linkedin className="w-5 h-5" />
-                                    </Link>
+
                                 </div>
                             </div>
                         </div>
@@ -358,9 +361,7 @@ export default function TeamPage() {
                                     <p className="text-gray-700 italic leading-relaxed text-sm font-medium mb-4">
                                         "Leading our department towards technical brilliance and academic success for a better tomorrow."
                                     </p>
-                                    <Link href="#" className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-sm text-emerald-600 hover:bg-emerald-600 hover:text-white transition-colors" aria-label="LinkedIn Profile">
-                                        <Linkedin className="w-5 h-5" />
-                                    </Link>
+
                                 </div>
                             </div>
                         </div>
@@ -380,9 +381,7 @@ export default function TeamPage() {
                                     <p className="text-gray-700 italic leading-relaxed text-sm font-medium mb-4">
                                         "Fostering a culture of innovation and excellence within the computer engineering community."
                                     </p>
-                                    <Link href="#" className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-sm text-emerald-600 hover:bg-emerald-600 hover:text-white transition-colors" aria-label="LinkedIn Profile">
-                                        <Linkedin className="w-5 h-5" />
-                                    </Link>
+
                                 </div>
                             </div>
                         </div>
