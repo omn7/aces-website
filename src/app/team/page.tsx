@@ -214,7 +214,7 @@ const NON_TEACHING_STAFF = [
 ];
 
 const TEAM_MEMBERS = [
-    { id: 1, name: 'Ms. Janki Rajesh Palpattwar', role: 'President', linkedin: 'http://linkedin.com/in/janki-palpattuwar-80385b258', photo: '/team/Janki Palpattwar.png' },
+    { id: 1, name: 'Ms. Janki Rajesh Palpattuwar', role: 'President', linkedin: 'http://linkedin.com/in/janki-palpattuwar-80385b258', photo: '/team/Janki Palpattwar.png' },
     { id: 2, name: 'Mr. Arya Amit Mokashi', role: 'President', linkedin: 'http://linkedin.com/in/arya-mokashi-032105259', photo: '/team/Arya Mokashi.jpg' },
     { id: 3, name: 'Ms. Mahek Vinod Wadhwani', role: 'Vice President', photo: '/team/Mahek Wadhwani.jpg' },
     { id: 4, name: 'Mr. Arya Haridas Kshirsagar', role: 'Vice President', linkedin: 'https://www.linkedin.com/in/arya-kshirsagar-0275aa290', photo: '/team/Arya Kshirsagar.png' },
