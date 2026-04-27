@@ -148,8 +148,8 @@ export default function Home() {
           <Card className="flex flex-col md:flex-row group overflow-hidden border-0 bg-white">
             <div className="md:w-5/12 h-64 md:h-auto relative overflow-hidden">
               <Image
-                src="/events/EventIEEE.png"
-                alt="IEEE International Conference — ICRAES 2026"
+                src="/events/student felicitation.png"
+                alt="Students Felicitation"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-700"
               />
@@ -159,21 +159,19 @@ export default function Home() {
             <div className="p-8 md:p-10 md:w-7/12 flex flex-col justify-center">
               <div className="inline-flex items-center gap-2 text-sm font-bold text-emerald-600 mb-4 bg-emerald-50 px-3 py-1 rounded-full w-fit">
                 <Calendar className="w-4 h-4" />
-                22nd &amp; 23rd April 2026 • Online Mode
+                Apr 28, 2026 • To Be Announced
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors">IEEE International Conference</h3>
-              <p className="text-sm font-semibold text-emerald-700 mb-4 uppercase tracking-wide">ICRAES 2026 — 2nd International Conference on Recent Advances in Engineering and Sciences</p>
+              <h3 className="text-3xl font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors">Students Felicitation</h3>
+              <p className="text-sm font-semibold text-emerald-700 mb-4 uppercase tracking-wide">Bharati Vidyapeeth's College of Engineering, Lavale</p>
               <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-                Bharati Vidyapeeth's College of Engineering, Lavale presents ICRAES 2026 — an online conference bringing together researchers, engineers, and scientists to share cutting-edge innovations and advancements across engineering disciplines.
+                ACES proudly presents the Students Felicitation ceremony — a special occasion to honour and celebrate the outstanding achievements of our talented Computer Engineering students.
               </p>
               <div>
                 <Link
-                  href="https://www.bvcoel.co.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/events"
                   className="inline-flex justify-center items-center px-6 py-3 font-semibold rounded-full text-white bg-gray-900 hover:bg-primary shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all w-full sm:w-auto"
                 >
-                  Register Now
+                  View Details
                 </Link>
               </div>
             </div>
