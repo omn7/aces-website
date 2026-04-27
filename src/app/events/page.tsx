@@ -30,23 +30,13 @@ const UPCOMING_EVENTS = [
 
 const FEATURED_EVENTS = [
     {
-        id: 101,
-        title: 'IEEE International Conference — ICRAES 2026',
-        date: '22nd & 23rd April 2026',
-        time: 'Online Mode',
-        location: 'Bharati Vidyapeeth\u2019s College of Engineering, Lavale',
-        description: 'Bharati Vidyapeeth\u2019s College of Engineering, Lavale presents ICRAES 2026 — the 2nd International Conference on Recent Advances in Engineering and Sciences. This online conference brings together researchers, engineers, and scientists to share cutting-edge innovations and advancements across engineering disciplines.',
-        image: '/events/IEEE InternationalConference.png',
-        link: 'https://www.bvcoel.co.in/',
-    },
-    {
         id: 102,
         title: 'Students Felicitation',
         date: 'Apr 28, 2026',
         time: 'To Be Announced',
         location: 'Bharati Vidyapeeth\u2019s College of Engineering, Lavale',
         description: 'ACES proudly presents the Students Felicitation ceremony — a special occasion to honour and celebrate the outstanding achievements of our talented Computer Engineering students.',
-        image: '/events/StudentsFelicitation.png',
+        image: '/events/student felicitation.png',
         link: null,
     },
     {
@@ -62,6 +52,15 @@ const FEATURED_EVENTS = [
 ];
 
 const PAST_EVENTS = [
+    {
+        id: 101,
+        title: 'IEEE International Conference — ICRAES 2026',
+        date: '22nd & 23rd April 2026',
+        time: 'Online Mode',
+        location: 'Bharati Vidyapeeth\u2019s College of Engineering, Lavale',
+        description: 'Bharati Vidyapeeth\u2019s College of Engineering, Lavale presents ICRAES 2026 — the 2nd International Conference on Recent Advances in Engineering and Sciences. This online conference brings together researchers, engineers, and scientists to share cutting-edge innovations and advancements across engineering disciplines.',
+        image: '/events/IEEE InternationalConference.png',
+    },
     {
         id: 9,
         title: 'Workshop on Innovation, Creativity & Feasibility',
